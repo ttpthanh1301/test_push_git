@@ -1,0 +1,19 @@
+YAML
+
+# 1. Chọn môi trường có sẵn Playwright (đã cài sẵn Node và Browser)
+image: mcr.microsoft.com/playwright:v1.49.0-jammy 
+ # 2. Định nghĩa các giai đoạn
+stages:
+  - test 
+   # 3. Định nghĩa Job chạy test
+playwright-tests:
+  stage: test
+  script: 
+    - npm ci 
+    - npx playwright test # Chạy test (Image của MS đã có sẵn Browser)
+ # 4. Giữ lại báo cáo sau khi chạy xong
+artifacts:
+  when: always # Luôn chạy kể cả khi test fai
+  paths:
+    - playwright-report/ # Folder chứa báo cáo expire_in: 30 days # Tự xóa sau 30 ngày
+  expire_in: 30 days
