@@ -1,0 +1,21 @@
+
+[
+    {
+        "username": "standard_user",
+        "password": "secret_sauce",
+        "expectedMessage": "Products",
+        "desc": "Login thành công"
+    },
+    {
+        "username": "locked_out_user",
+        "password": "secret_sauce",
+        "expectedMessage": "Epic sadface: Sorry, this user has been locked out.",
+        "desc": "User bị khóa"
+    },
+    {
+        "username": "standard_user",
+        "password": "wrong_password",
+        "expectedMessage": "Epic sadface: Username and password do not match",
+        "desc": "Sai mật khẩu"
+    }
+]
